@@ -1,34 +1,34 @@
 export default function EcommerceCard() {
   return (
-    <div className="w-96 bg-white/50 rounded-lg shadow-lg overflow-hidden">
+    <div className="w-full max-w-sm mx-auto bg-white/50 rounded-lg shadow-lg overflow-hidden">
       {/* Card Header / Image */}
-      <div className="h-96 overflow-hidden ">
+      <div className="aspect-square overflow-hidden px-4 pt-3 sm:px-5 sm:pt-4">
         <img
           src="1.png"
           alt="Apple AirPods"
-          className="h-[90%] mt-6 w-[90%] m-auto rounded-xl object-cover"
+          className="h-full w-full rounded-xl object-cover"
         />
       </div>
       
       {/* Card Body */}
-      <div className="p-6">
-        <div className="mb-2 flex items-center justify-between">
-          <h3 className="text-blue-700 font-semibold text-lg">
+      <div className="px-5 sm:py-2">
+        <div className="mb-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0">
+          <h3 className="text-blue-700 font-semibold text-lg sm:text-xl">
             Apple AirPods
           </h3>
-          <span className="text-blue-700 font-semibold text-lg">
+          <span className="text-blue-700 font-semibold text-lg sm:text-xl">
             $95.00
           </span>
         </div>
-        <p className="text-gray-600 text-sm font-normal opacity-75 leading-relaxed">
+        <p className="text-gray-600 text-sm sm:text-base font-normal opacity-75 leading-relaxed">
           With plenty of talk and listen time, voice-activated Siri access, and
           an available wireless charging case.
         </p>
       </div>
       
       {/* Card Footer */}
-      <div className="px-6 pb-6">
-        <button className="w-full bg-blue-900/10 text-blue-900 py-3 px-4 rounded-lg font-semibold transition-transform duration-200 hover:scale-105 focus:scale-105 active:scale-100 ">
+      <div className="px-5 pb-4 sm:px-5 *:py-3 sm:pb-4">
+        <button className="w-full bg-blue-900/10 text-blue-900 py-3 px-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:bg-blue-900/20 focus:scale-105 focus:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-100">
           Add to Cart
         </button>
       </div>

@@ -22,13 +22,13 @@ import EcommerceCard from "../../components/EcommerceCard";
 export default function Home() {
   return (
     <div>
-      <Navbar isBordered isBlurred className="py-4 sticky top-0 z-50 px-5">
+      <Navbar isBordered className="py-4 bg-black/90 sticky top-0 z-50 px-5">
         <NavbarBrand>
           <p className="font-bold text-inherit">KAMRAN</p>
         </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden sm:flex font-semibold gap-8" justify="center">
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link href="#">
               Features
             </Link>
           </NavbarItem>
@@ -55,10 +55,10 @@ export default function Home() {
       {/* Product Cards */}
       <div className="bg-gray-100 py-6">
         <div className="max-w-[1650px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-6">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl text-start mb-6">
             Featured Products
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-30">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {[...Array(4)].map((_, i) => (
               <EcommerceCard key={i} />
             ))}
