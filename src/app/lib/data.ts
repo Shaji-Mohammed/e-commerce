@@ -18,10 +18,10 @@ export const product: Product = {
   salePrice: 19.99,
   images: [
     "/80s_trans.jpeg",
-    "/80s_trans.jpeg",
+    "/80s_black.jpeg",
     "/80s_trans.jpeg",
   ],
-  inStock: false, // Set to false to show "sold out" state
+  inStock: true, // Set to false to show "sold out" state
   ingredients: [
     "Argan Oil",
     "Jojoba Oil",
