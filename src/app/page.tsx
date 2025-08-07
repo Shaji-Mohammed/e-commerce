@@ -80,13 +80,13 @@ export default function Home() {
               </h3>
               <div className="flex items-center space-x-3 mb-6">
                 <span className="text-3xl font-bold text-orange-600">
-                  ${product.salePrice}
+                  Rs.{product.salePrice.toLocaleString()}
                 </span>
                 <span className="text-xl text-gray-500 line-through">
-                  ${product.originalPrice}
+                  Rs. {product.originalPrice.toLocaleString()}
                 </span>
                 <span className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full">
-                  Save ${(product.originalPrice - product.salePrice).toFixed(2)}
+                  Save Rs. {(product.originalPrice - product.salePrice).toFixed(2)}
                 </span>
               </div>
 

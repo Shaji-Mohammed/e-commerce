@@ -60,14 +60,14 @@ export default function CatalogPage() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                       <span className="text-2xl font-bold text-orange-600">
-                        ${prod.salePrice}
+                        Rs.{prod.salePrice.toLocaleString()}
                       </span>
                       <span className="text-lg text-gray-500 line-through">
-                        ${prod.originalPrice}
+                        Rs.{prod.originalPrice.toLocaleString()}
                       </span>
                     </div>
                     <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
-                      Save ${(prod.originalPrice - prod.salePrice).toFixed(2)}
+                      Save Rs.{(prod.originalPrice - prod.salePrice).toFixed(2)}
                     </span>
                   </div>
 

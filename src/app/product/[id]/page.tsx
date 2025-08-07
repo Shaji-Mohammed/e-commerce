@@ -46,13 +46,13 @@ export default function ProductPage({ params }: PageProps) {
               {/* Pricing */}
               <div className="flex items-center space-x-4 mb-6">
                 <span className="text-4xl font-bold text-orange-600">
-                  ${product.salePrice}
+                  Rs.{product.salePrice.toLocaleString()}
                 </span>
                 <span className="text-2xl text-gray-500 line-through">
-                  ${product.originalPrice}
+                  Rs.{product.originalPrice.toLocaleString()}
                 </span>
                 <span className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full font-medium">
-                  Save ${(product.originalPrice - product.salePrice).toFixed(2)}
+                  Save Rs.{(product.originalPrice - product.salePrice).toFixed(2)}
                 </span>
               </div>
 
@@ -89,20 +89,7 @@ export default function ProductPage({ params }: PageProps) {
                     Added to cart successfully!
                   </div>
                 ) : null}
-                {/* <button
-                  onClick={handleAddToCart}
-                  disabled={!product.inStock}
-                  className={`w-full py-3 px-6 rounded-md font-medium transition-colors flex items-center justify-center space-x-2 ${
-                    product.inStock
-                      ? "bg-gray-900 text-white hover:bg-gray-800"
-                      : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  }`}
-                >
-                  <ShoppingCartIcon className="h-5 w-5" />
-                  <span>
-                    {product.inStock ? "Add to Cart" : "Sold Out"}
-                  </span>
-                </button> */}
+
                 <div className="relative justify-center">
                   <InteractiveHoverButton
                     productName="80s Hair Oil"
