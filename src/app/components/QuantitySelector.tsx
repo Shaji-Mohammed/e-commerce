@@ -26,7 +26,7 @@ export default function QuantitySelector({
   };
 
   return (
-    <div className="flex items-center border border-gray-300 rounded-md">
+    <div className="flex items-center border bg-gray-400 border-gray-300 rounded-md">
       <button
         onClick={handleDecrement}
         disabled={disabled || quantity <= 1}

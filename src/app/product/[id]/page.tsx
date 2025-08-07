@@ -6,6 +6,7 @@ import { product } from "@/app/lib/data";
 import ImageCarousel from "@/app/components/ImageCarousel";
 import QuantitySelector from "@/app/components/QuantitySelector";
 import BuyNowButton from "@/app/components/BuyButton";
+import { InteractiveHoverButton } from "@/app/components/InteractiveBtn";
 
 interface PageProps {
   params: Promise<{
@@ -83,13 +84,11 @@ export default function ProductPage({ params }: PageProps) {
                     disabled={!product.inStock}
                   />
                 </div>
-
                 {addedToCart ? (
                   <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
                     Added to cart successfully!
                   </div>
                 ) : null}
-
                 {/* <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
@@ -104,8 +103,12 @@ export default function ProductPage({ params }: PageProps) {
                     {product.inStock ? "Add to Cart" : "Sold Out"}
                   </span>
                 </button> */}
-
-                <BuyNowButton productName="80s Hair Oil" quantity={1} />
+                <div className="relative justify-center">
+                  <InteractiveHoverButton
+                    productName="80s Hair Oil"
+                    quantity={quantity}
+                  />
+                </div>
               </div>
 
               {/* Quick Benefits */}
