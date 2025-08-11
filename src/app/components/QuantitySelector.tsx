@@ -6,43 +6,52 @@ interface QuantitySelectorProps {
   quantity: number;
   onQuantityChange: (quantity: number) => void;
   disabled?: boolean;
+  minQuantity?: number; // Optional prop for min quantity
+  maxQuantity?: number; // Optional prop for max quantity
 }
 
 export default function QuantitySelector({
   quantity,
   onQuantityChange,
-  disabled = false
+  disabled = false,
+  minQuantity = 1, // Default min quantity to 1
+  maxQuantity = 99, // Default max quantity to 99
 }: QuantitySelectorProps) {
   const handleDecrement = () => {
-    if (quantity > 1 && !disabled) {
+    if (quantity > minQuantity && !disabled) {
       onQuantityChange(quantity - 1);
     }
   };
 
   const handleIncrement = () => {
-    if (!disabled) {
+    if (quantity < maxQuantity && !disabled) {
       onQuantityChange(quantity + 1);
     }
   };
 
   return (
-    <div className="flex items-center border bg-gray-400 border-gray-300 rounded-md">
+    <div className="flex h-10items-center border border-gray-300 rounded-md overflow-hidden">
+      {/* Decrement Button */}
       <button
         onClick={handleDecrement}
-        disabled={disabled || quantity <= 1}
-        className="p-2 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        disabled={disabled || quantity <= minQuantity}
+        className="p-3 bg-gray-200 hover:bg-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
       >
-        <MinusIcon className="h-4 w-4" />
+        <MinusIcon className="h-5 w-5 text-gray-700  hover:text-white" />
       </button>
-      <span className="px-4 py-2 border-x border-gray-300 bg-gray-50 min-w-[60px] text-center">
+
+      {/* Quantity Display */}
+      <span className="px-6 py-3 bg-gray-50 text-gray-800 font-medium text-lg">
         {quantity}
       </span>
+
+      {/* Increment Button */}
       <button
         onClick={handleIncrement}
-        disabled={disabled}
-        className="p-2 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        disabled={disabled || quantity >= maxQuantity}
+        className="p-3 bg-gray-200  hover:bg-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
       >
-        <PlusIcon className="h-4 w-4" />
+        <PlusIcon className="h-5 w-5 text-gray-700  hover:text-white" />
       </button>
     </div>
   );

@@ -12,7 +12,7 @@ interface InteractiveHoverButtonProps {
 export function InteractiveHoverButton({
   text = "Buy Now",
   className,
-  phoneNumber = "9028090243",
+  phoneNumber = "9024126507",
   productName = "Product",
   quantity,
 }: InteractiveHoverButtonProps = {}) {

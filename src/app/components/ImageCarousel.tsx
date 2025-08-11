@@ -27,7 +27,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   return (
     <div className="relative">
       {/* Main Image */}
-      <div className="relative w-full h-96 bg-gray-100 rounded-lg overflow-hidden">
+      <div className="relative w-150 h-155 bg-gray-100 rounded-lg overflow-hidden">
         <Image
           src={images[currentIndex]}
           alt={`${alt} - Image ${currentIndex + 1}`}

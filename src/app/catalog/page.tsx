@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { product } from "../lib/data";
+import { products } from "../lib/data";
 
 export default function CatalogPage() {
   // For demo purposes, we'll duplicate the product to show a catalog layout
-  const products = [product, { ...product, id: "80s-hair-oil-2", name: "80s Hair Oil - Deluxe" }];
+  const product = [...products];
 
   return (
     <div>
@@ -16,8 +16,8 @@ export default function CatalogPage() {
               Product Catalog
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover our premium collection of hair care products designed to give you
-              the voluminous, healthy hair you deserve.
+              Discover our premium collection of hair care products designed to
+              give you the voluminous, healthy hair you deserve.
             </p>
           </div>
         </div>
@@ -27,11 +27,14 @@ export default function CatalogPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((prod, index) => (
-              <div key={prod.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative h-64 bg-gray-100">
+            {product.map((prod, index) => (
+              <div
+                key={prod.id}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div className="relative h-90 bg-gray-100">
                   <Image
-                    src={prod.images[index]}
+                    src={prod.images[0]}
                     alt={prod.name}
                     fill
                     className="object-cover w-auto h-auto"
@@ -43,9 +46,12 @@ export default function CatalogPage() {
                       </span>
                     </div>
                   )}
-                  <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Sale!
-                  </div>
+
+                  {prod.id !== "3" && (
+                    <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      Sale!
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">
@@ -53,22 +59,23 @@ export default function CatalogPage() {
                     {prod.name}
                   </h3>
 
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {prod.description.substring(0, 100)}...
-                  </p>
-
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                       <span className="text-2xl font-bold text-orange-600">
                         Rs.{prod.salePrice.toLocaleString()}
                       </span>
-                      <span className="text-lg text-gray-500 line-through">
-                        Rs.{prod.originalPrice.toLocaleString()}
-                      </span>
+                      {prod.id !== "3" && (
+                        <span className="text-lg text-gray-500 line-through">
+                          Rs.{prod.originalPrice.toLocaleString()}
+                        </span>
+                      )}
                     </div>
-                    <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
-                      Save Rs.{(prod.originalPrice - prod.salePrice).toFixed(2)}
-                    </span>
+                    {prod.id !== "3" && (
+                      <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
+                        Save Rs.
+                        {(prod.originalPrice - prod.salePrice).toFixed(2)}
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex flex-col space-y-2">
@@ -78,16 +85,6 @@ export default function CatalogPage() {
                     >
                       View Details
                     </Link>
-                    <button
-                      disabled={!prod.inStock}
-                      className={`px-6 py-2 rounded-md font-medium transition-colors ${
-                        prod.inStock
-                          ? "border border-gray-300 text-gray-700 hover:bg-gray-50"
-                          : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      }`}
-                    >
-                      {prod.inStock ? "Quick Add" : "Sold Out"}
-                    </button>
                   </div>
                 </div>
               </div>
@@ -98,7 +95,8 @@ export default function CatalogPage() {
           {products.length === 1 && (
             <div className="text-center mt-12">
               <p className="text-gray-600">
-                More products coming soon! Stay tuned for our expanded collection.
+                More products coming soon! Stay tuned for our expanded
+                collection.
               </p>
             </div>
           )}

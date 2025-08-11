@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { product } from "./lib/data";
+import { products } from "./lib/data";
 
 export default function Home() {
+  const product = products[1];
+
   return (
     <div>
       {/* Hero Section */}
@@ -15,8 +17,9 @@ export default function Home() {
                 <span className="text-orange-600"> 80s Style</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Experience the luxurious hair care that defined a generation. Our premium
-                80s Hair Oil brings back the glamour with modern, effective formulations.
+                Experience the luxurious hair care that defined a generation.
+                Our premium 80s Hair Oil brings back the glamour with modern,
+                effective formulations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -36,7 +39,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src={product.images[0]}
+                  src={"/200ml_5.webp"}
                   alt="80s Hair Oil Hero Image"
                   fill
                   className="object-cover"
@@ -86,16 +89,17 @@ export default function Home() {
                   Rs. {product.originalPrice.toLocaleString()}
                 </span>
                 <span className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full">
-                  Save Rs. {(product.originalPrice - product.salePrice).toFixed(2)}
+                  Save Rs.{" "}
+                  {(product.originalPrice - product.salePrice).toFixed(2)}
                 </span>
               </div>
 
-              <p className="text-gray-600 mb-8">
-                {product.description}
-              </p>
+              <p className="text-gray-600 mb-8">{product.description}</p>
 
               <div className="mb-8">
-                <h4 className="font-semibold text-gray-900 mb-3">Key Benefits:</h4>
+                <h4 className="font-semibold text-gray-900 mb-3">
+                  Key Benefits:
+                </h4>
                 <ul className="space-y-2">
                   {product.benefits.slice(0, 3).map((benefit, index) => (
                     <li key={index} className="flex items-start">
@@ -107,7 +111,7 @@ export default function Home() {
               </div>
 
               <Link
-                href="/product/80s-hair-oil"
+                href={`/product/${product.id}`}
                 className="bg-gray-900 text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors inline-block font-medium"
               >
                 View Product Details
@@ -131,9 +135,12 @@ export default function Home() {
               <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🌿</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Natural Ingredients</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Natural Ingredients
+              </h3>
               <p className="text-gray-600">
-                Made with premium natural oils and extracts for the healthiest hair care experience.
+                Made with premium natural oils and extracts for the healthiest
+                hair care experience.
               </p>
             </div>
 
@@ -141,9 +148,12 @@ export default function Home() {
               <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">✨</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Proven Results</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Proven Results
+              </h3>
               <p className="text-gray-600">
-                Thousands of satisfied customers have transformed their hair with our proven formula.
+                Thousands of satisfied customers have transformed their hair
+                with our proven formula.
               </p>
             </div>
 
@@ -151,9 +161,12 @@ export default function Home() {
               <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🚚</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Shipping</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Fast Shipping
+              </h3>
               <p className="text-gray-600">
-                Quick and reliable shipping so you can start your hair transformation journey immediately.
+                Quick and reliable shipping so you can start your hair
+                transformation journey immediately.
               </p>
             </div>
           </div>
