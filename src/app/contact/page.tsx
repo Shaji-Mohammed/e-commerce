@@ -1,21 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -62,7 +68,10 @@ export default function ContactPage() {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Full Name
                   </label>
                   <input
@@ -77,7 +86,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address
                   </label>
                   <input
@@ -92,7 +104,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Subject
                   </label>
                   <input
@@ -107,7 +122,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -142,7 +160,6 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Email</h3>
                     <p className="text-gray-600">support@80shairoil.com</p>
-                    <p className="text-gray-600">hello@80shairoil.com</p>
                   </div>
                 </div>
 
@@ -150,19 +167,9 @@ export default function ContactPage() {
                   <PhoneIcon className="h-6 w-6 text-orange-600 mr-4 mt-1" />
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">Monday - Friday, 9am - 6pm EST</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <MapPinIcon className="h-6 w-6 text-orange-600 mr-4 mt-1" />
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">Office</h3>
+                    <p className="text-gray-600">+92 3035698492</p>
                     <p className="text-gray-600">
-                      123 Beauty Lane<br />
-                      Los Angeles, CA 90210<br />
-                      United States
+                      Monday - Friday, 9am - 6pm PST
                     </p>
                   </div>
                 </div>
@@ -175,16 +182,12 @@ export default function ContactPage() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium text-gray-900">How long does shipping take?</h4>
-                    <p className="text-gray-600 text-sm">Standard shipping takes 3-5 business days within the US.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900">Do you offer international shipping?</h4>
-                    <p className="text-gray-600 text-sm">Yes, we ship worldwide with delivery times varying by location.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900">What's your return policy?</h4>
-                    <p className="text-gray-600 text-sm">We offer a 30-day satisfaction guarantee on all products.</p>
+                    <h4 className="font-medium text-gray-900">
+                      How long does shipping take?
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Standard shipping takes 3-5 business days.
+                    </p>
                   </div>
                 </div>
               </div>

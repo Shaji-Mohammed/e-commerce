@@ -14,16 +14,14 @@ export default function Home() {
             <div>
               <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
                 Transform Your Hair with
-                <span className="text-orange-600"> 80s Style</span>
+                <span className="text-orange-600"> 80s Hair Oil</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Experience the luxurious hair care that defined a generation.
-                Our premium 80s Hair Oil brings back the glamour with modern,
-                effective formulations.
+                Crafted with nature's finest, our essential oils embody pure ingridients and pure intentions for your well-being.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/product/80s-hair-oil"
+                  href="/product/2"
                   className="bg-gray-900 text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors text-center font-medium"
                 >
                   Shop Now

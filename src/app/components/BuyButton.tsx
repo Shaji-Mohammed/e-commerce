@@ -1,6 +1,6 @@
 // components/BuyNowButton.js
 export default function BuyNowButton({ productName, quantity }) {
-  const phoneNumber = "923035698492"; // Replace with your WhatsApp number (no + or spaces)
+  const phoneNumber = "923035698492"; 
 
   const message = `Hi, I would like to order ${quantity} unit(s) of ${productName}.`;
 
