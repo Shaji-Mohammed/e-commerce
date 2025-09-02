@@ -1,9 +1,12 @@
+import Image from "next/image";
+
 export default function EcommerceCard() {
   return (
     <div className="w-full max-w-sm mx-auto bg-white/50 rounded-lg shadow-lg overflow-hidden">
       {/* Card Header / Image */}
       <div className="aspect-square overflow-hidden px-4 pt-3 sm:px-5 sm:pt-4">
-        <img
+        <Image
+          fill
           src="1.png"
           alt="Apple AirPods"
           className="h-full w-full rounded-xl object-cover"

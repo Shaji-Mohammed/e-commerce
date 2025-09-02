@@ -11,41 +11,43 @@ export default function Footer() {
             <p className="text-gray-300 mb-4">
               Every drop of our oil is a blend of tradition and
               innovation—infused with botanical extracts, essential nutrients,
-              and zero harmful chemicals. Whether you're tackling hair fall,
-              dryness, or just looking to elevate your hair care routine, we’re
+              and zero harmful chemicals. Whether you&rsquo;re tackling hair fall,
+              dryness, or just looking to elevate your hair care routine, we&rsquo;re
               here to support your journey to healthier, happier hair.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="justify-end">
+          <div className="justify-end ml-40">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/catalog"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Catalog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            <div>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/catalog"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    Catalog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

@@ -5,10 +5,10 @@ export interface Product {
   salePrice: number;
   images: string[];
   inStock: boolean;
-  ingredients: string[];
-  benefits: string[];
-  instructions: string[];
-  description: string;
+  ingredients?: string[];
+  benefits?: string[];
+  instructions?: string[];
+  description?: string;
 }
 
 export const products = [

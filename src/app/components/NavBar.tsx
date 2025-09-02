@@ -1,12 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
 import { BtnBorder } from "./CustomBtn";
 
 export default function Navbar() {
-  const [cartItems] = useState(0);
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">

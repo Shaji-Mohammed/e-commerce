@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   EnvelopeIcon,
   PhoneIcon,
-  MapPinIcon,
 } from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
@@ -43,8 +42,8 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have questions about our products? We'd love to hear from you.
-              Send us a message and we'll respond as soon as possible.
+              Have questions about our products? We&rsquo;d love to hear from you.
+              Send us a message and we&rsquo;ll respond as soon as possible.
             </p>
           </div>
         </div>
@@ -62,7 +61,7 @@ export default function ContactPage() {
 
               {isSubmitted && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                  Thank you for your message! We'll get back to you soon.
+                  Thank you for your message! We&rsquo;ll get back to you soon.
                 </div>
               )}
 

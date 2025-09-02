@@ -17,26 +17,35 @@ export default function Home() {
                 <span className="text-orange-600"> 80s Hair Oil</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Crafted with nature's finest, our essential oils embody pure ingridients and pure intentions for your well-being.
+                Crafted with nature&rsquo;s finest, our essential oils embody
+                pure ingridients and pure intentions for your well-being.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/product/2"
-                  className="bg-gray-900 text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors text-center font-medium"
+                  className="bg-gray-900 text-white px-8 py-3 rounded-sm hover:bg-gray-800 transition-colors text-center font-medium"
                 >
                   Shop Now
                 </Link>
                 <Link
                   href="/catalog"
-                  className="border border-gray-900 text-gray-900 px-8 py-3 rounded-md hover:bg-gray-50 transition-colors text-center font-medium"
+                  className="group relative px-4 py-3 font-medium text-gray-900 transition-colors duration-[400ms] hover:text-gray-900"
                 >
                   View Catalog
+                  <span className="absolute left-0 top-0 h-[2px] w-0 bg-gray-900 transition-all duration-100 group-hover:w-full" />
+                  {/* RIGHT */}
+                  <span className="absolute right-0 top-0 h-0 w-[2px] bg-gray-900 transition-all delay-100 duration-100 group-hover:h-full" />
+                  {/* BOTTOM */}
+                  <span className="absolute bottom-0 right-0 h-[2px] w-0 bg-gray-900 transition-all delay-200 duration-100 group-hover:w-full" />
+                  {/* LEFT */}
+                  <span className="absolute bottom-0 left-0 h-0 w-[2px] bg-gray-900 transition-all delay-300 duration-100 group-hover:h-full" />
                 </Link>
               </div>
             </div>
             <div className="relative">
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
+                  unoptimized
                   src={"/200ml_5.webp"}
                   alt="80s Hair Oil Hero Image"
                   fill
@@ -60,13 +69,15 @@ export default function Home() {
               Featured Product
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our signature hair oil that's been transforming hair since the 80s
+              Our signature hair oil that&rsquo;s been transforming hair since
+              the 80s
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <Image
+                unoptimized
                 src={product.images[1]}
                 alt={product.name}
                 width={500}
@@ -99,12 +110,13 @@ export default function Home() {
                   Key Benefits:
                 </h4>
                 <ul className="space-y-2">
-                  {product.benefits.slice(0, 3).map((benefit, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-green-500 mr-2">✓</span>
-                      <span className="text-gray-600">{benefit}</span>
-                    </li>
-                  ))}
+                  {product.benefits &&
+                    product.benefits.slice(0, 3).map((benefit, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span className="text-gray-600">{benefit}</span>
+                      </li>
+                    ))}
                 </ul>
               </div>
 

@@ -29,6 +29,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
       {/* Main Image */}
       <div className="relative w-150 h-155 bg-gray-100 rounded-lg overflow-hidden">
         <Image
+          unoptimized
           src={images[currentIndex]}
           alt={`${alt} - Image ${currentIndex + 1}`}
           fill
@@ -81,6 +82,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               }`}
             >
               <Image
+                unoptimized
                 src={image}
                 alt={`${alt} thumbnail ${index + 1}`}
                 fill

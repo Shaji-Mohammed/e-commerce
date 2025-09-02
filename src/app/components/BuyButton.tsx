@@ -1,5 +1,10 @@
 // components/BuyNowButton.js
-export default function BuyNowButton({ productName, quantity }) {
+type BuyNowProps = {
+  productName : string;
+  quantity: string;
+}
+
+export default function BuyNowButton({ productName, quantity } : BuyNowProps) {
   const phoneNumber = "923035698492"; 
 
   const message = `Hi, I would like to order ${quantity} unit(s) of ${productName}.`;

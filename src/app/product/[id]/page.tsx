@@ -1,12 +1,6 @@
-"use client";
 
-import { useState, use } from "react";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { products } from "@/app/lib/data";
-import ImageCarousel from "@/app/components/ImageCarousel";
-import QuantitySelector from "@/app/components/QuantitySelector";
-import BuyNowButton from "@/app/components/BuyButton";
-import { InteractiveHoverButton } from "@/app/components/InteractiveBtn";
+import ProductDetailClient from "../ProductDetailClient";
 
 interface PageProps {
   params: Promise<{
@@ -14,10 +8,8 @@ interface PageProps {
   }>;
 }
 
-export default function ProductPage({ params }: PageProps) {
-  const { id } = use(params);
-  const [quantity, setQuantity] = useState(1);
-  const [addedToCart, setAddedToCart] = useState(false);
+export default async function ProductPage({ params }: PageProps) {
+  const { id } = await params;
   const product = products.find((prod) => prod.id === id);
 
   if (!product) {
@@ -27,104 +19,7 @@ export default function ProductPage({ params }: PageProps) {
   return (
     <div>
       {/* Product Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Product Images */}
-            <div>
-              <ImageCarousel images={product.images} alt={product.name} />
-            </div>
-
-            {/* Product Details */}
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">
-                {product.name}
-              </h1>
-
-              {/* Pricing */}
-              <div className="flex items-center space-x-4 mb-6">
-                <span className="text-4xl font-bold text-orange-600">
-                  Rs.{product.salePrice.toLocaleString()}
-                </span>
-                {product.id !== "3" && (
-                  <div className=" flex flex-row items-center gap-2">
-                    <span className="text-2xl text-gray-500 line-through">
-                      Rs.{product.originalPrice.toLocaleString()}
-                    </span>
-                    <span className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full font-medium">
-                      Save Rs.
-                      {(product.originalPrice - product.salePrice).toFixed(2)}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Stock Status */}
-              <div className="mb-6">
-                {product.inStock ? (
-                  <span className="text-green-600 font-medium">✓ In Stock</span>
-                ) : (
-                  <span className="text-red-600 font-medium">
-                    ✗ Currently Sold Out
-                  </span>
-                )}
-              </div>
-
-              {/* Description */}
-              {product?.description && (
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  {product.description}
-                </p>
-              )}
-
-              {/* Quantity and Add to Cart */}
-              <div className="mb-8">
-                <div className="flex items-center space-x-4 mb-4">
-                  <label className="text-sm font-medium text-gray-900">
-                    Quantity:
-                  </label>
-                  <QuantitySelector
-                    quantity={quantity}
-                    onQuantityChange={setQuantity}
-                    disabled={!product.inStock}
-                  />
-                </div>
-                {addedToCart ? (
-                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                    Added to cart successfully!
-                  </div>
-                ) : null}
-
-                <div className="relative justify-center">
-                  <InteractiveHoverButton
-                    productName="80s Hair Oil"
-                    quantity={quantity}
-                  />
-                </div>
-
-                <p className="my-3 text-black font-semibold">Free Delivery</p>
-              </div>
-
-              {/* Quick Benefits */}
-              {product?.benefits && (
-                <div className="border-t border-gray-200 pt-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    Key Benefits
-                  </h3>
-                  <ul className="space-y-2">
-                    {product.benefits.slice(0, 4).map((benefit, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-green-500 mr-2 mt-1">✓</span>
-                        <span className="text-gray-600">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductDetailClient product={product} />
 
       {/* Product Details Tabs */}
       {product?.benefits && (
@@ -183,4 +78,10 @@ export default function ProductPage({ params }: PageProps) {
       )}
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return products.map((product) => ({
+    id: product.id,
+  }));
 }
