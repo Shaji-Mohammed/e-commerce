@@ -158,7 +158,7 @@ export default function ContactPage() {
                   <EnvelopeIcon className="h-6 w-6 text-orange-600 mr-4 mt-1" />
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">support@80shairoil.com</p>
+                    <p className="text-gray-600">80skeratinoil@gmail.com</p>
                   </div>
                 </div>
 
@@ -166,10 +166,7 @@ export default function ContactPage() {
                   <PhoneIcon className="h-6 w-6 text-orange-600 mr-4 mt-1" />
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+92 3035698492</p>
-                    <p className="text-gray-600">
-                      Monday - Friday, 9am - 6pm PST
-                    </p>
+                    <p className="text-gray-600">+92 3314621734</p>
                   </div>
                 </div>
               </div>
